@@ -4,6 +4,19 @@ A fine-tuned open-source LLM that generates reflection questions for children us
 
 Given activity context from the Sugar Journal (what the child did, how long, their age), the model produces a single age-appropriate reflection question to encourage thinking about their learning.
 
+## Documentation
+
+Detailed documentation is available in the [`docs/`](docs/) directory:
+
+- [**Project Overview**](docs/overview.md) — What this project is, how it fits into the broader GSoC system, and the end-to-end flow from Sugar Shell to model response
+- [**System Architecture**](docs/architecture.md) — The three system components (Sugar Shell, FastAPI backend, model), request flow, and data flow diagrams
+- [**Reflection Frameworks**](docs/frameworks.md) — Detailed explanation of Gibbs, Kolb, and What-So-What frameworks, their stages, and age-based selection logic
+- [**Dataset**](docs/dataset.md) — Training data format, input fields, generation process using a teacher LLM, and quality guidelines
+- [**Training**](docs/training.md) — LoRA fine-tuning method, base model choice, configuration parameters, and how to run training
+- [**Inference**](docs/inference.md) — `ReflectionModel` API, parameters, system prompts per framework, and how the backend consumes the model
+- [**Evaluation**](docs/evaluation.md) — Scoring metrics (question detection, open-endedness, length, age-appropriateness), how to run evaluation
+- [**Deployment**](docs/deployment.md) — Three deployment options (local model, merged export, Ollama), hardware requirements, and Sugar Shell configuration
+
 ## Mission
 
 When a child finishes or pauses an activity in Sugar, the system should prompt them to reflect on what they did, why they did it, what they learned, and what they might try next. This model powers that experience — turning raw activity metadata into a meaningful, age-appropriate question that helps build reflective thinking habits.
@@ -12,7 +25,7 @@ The goal is not a general-purpose chatbot. It is a focused, lightweight model th
 
 ## What Has Been Completed
 
-- **Research** — Studied three reflective practice frameworks (What-So-What-Now-What, Gibbs Cycle, Kolb Cycle) and documented how each applies to different age groups and Sugar activities. See `data/frameworks.md`.
+- **Research** — Studied three reflective practice frameworks (What-So-What-Now-What, Gibbs Cycle, Kolb Cycle) and documented how each applies to different age groups and Sugar activities. See [`data/frameworks.md`](data/frameworks.md).
 - **Training dataset** — Built a seed dataset of reflection prompt examples in JSONL format, covering various Sugar activities, age groups, and framework stages. Created an automated expansion pipeline using a teacher LLM. Split into train and eval sets.
 - **Fine-tuning** — Trained a LoRA adapter on TinyLlama-1.1B-Chat using the dataset. Three epochs completed with checkpoints saved. Adapter weights are in `training/output/reflection-lora/`.
 - **Inference module** — Built a `ReflectionModel` class that loads the adapter and generates reflection questions from activity context. Includes system prompt templates for each framework.
@@ -46,6 +59,7 @@ training/           LoRA fine-tuning script and config
 inference/          Model loading and prompt generation
 evaluation/         Scoring metrics and evaluation runner
 scripts/            Model export and smoke tests
+docs/               Detailed project documentation
 ```
 
 ## Usage
