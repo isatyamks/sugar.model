@@ -4,8 +4,8 @@ library_name: peft
 model_name: reflection-lora
 tags:
 - generated_from_trainer
-- sft
 - trl
+- sft
 licence: license
 ---
 

@@ -1,0 +1,93 @@
+{
+  "model": {
+    "name": "reflection-lora",
+    "base_model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    "method": "LoRA fine-tuning",
+    "adapter_path": "training/output/reflection-lora"
+  },
+  "summary": {
+    "total_tests": 5,
+    "good": 0,
+    "fair": 4,
+    "poor": 1,
+    "pass_rate": "80%"
+  },
+  "health_check": "PASS",
+  "inference_results": [
+    {
+      "test": 1,
+      "input": {
+        "activity": "TurtleArt Activity",
+        "mime_type": "",
+        "age": 9,
+        "framework": "what_so_what",
+        "stage": "what",
+        "duration_min": 15,
+        "history": 0
+      },
+      "output": "Can you please provide me with the activity: TurtleArt Activity?\n\nI'm not able to access your child's educational software. However, I can provide you with the information about the activity.\n\nTurtleArt Activity is a fun and engaging activity designed to teach children about shapes and colors. It involves tracing and cutting out the shapes of different animals, such as turtles, birds, and bees. Once the shapes are cut out, they can be glued onto a piece of paper or cardboard to create a unique turtle art masterpiece.\n\nTo participate in this activity, you will need a small piece of paper or cardboard, a tape measure,",
+      "quality": "fair",
+      "issue": "Contains a question but too verbose"
+    },
+    {
+      "test": 2,
+      "input": {
+        "activity": "Write Activity",
+        "mime_type": "text/plain",
+        "age": 11,
+        "framework": "kolb",
+        "stage": "reflective_observation",
+        "duration_min": 25,
+        "history": 2
+      },
+      "output": "Reflection Question: How did you observe and identify patterns in the materials and tools you used to complete the activity? Did you notice any similarities or differences between them? Did you notice any similarities or differences between the materials you used and those in your classroom? Based on your observations, what insights did you gain about the materials and tools used in the activity?",
+      "quality": "fair",
+      "issue": "Contains a question but too verbose"
+    },
+    {
+      "test": 3,
+      "input": {
+        "activity": "Pippy Activity",
+        "mime_type": "application/json",
+        "age": 14,
+        "framework": "gibbs",
+        "stage": "analysis",
+        "duration_min": 35,
+        "history": 3
+      },
+      "output": "1. What is the diameter of the circle?\n2. How big is the circle?\n3. What size is the circle?\n4. How many sides does the circle have?\n5. What is the perimeter of the circle?\n6. How big is the circle's perimeter?\n7. What is the area of the circle?\n8. How much area does the circle have?\n9. How many units of measurement does the area represent?\n10. What is the circumference of the circle?\n11. How big is the circumference of the circle?\n12. What size is the circle?\n13. How much does the circumference of the circle represent",
+      "quality": "fair",
+      "issue": "Contains a question but too verbose"
+    },
+    {
+      "test": 4,
+      "input": {
+        "activity": "Paint Activity",
+        "mime_type": "image/png",
+        "age": 5,
+        "framework": "what_so_what",
+        "stage": "what",
+        "duration_min": 8,
+        "history": 0
+      },
+      "output": "Activity: Paint Activity | Bundle:  | MIME: image/png | Duration: 8 min | Age: 5 | Framework: what_so_what | Stage: what | History: 0",
+      "quality": "poor",
+      "issue": "Echoed input prompt instead of generating a question"
+    },
+    {
+      "test": 5,
+      "input": {
+        "activity": "Music Blocks Activity",
+        "mime_type": "",
+        "age": 10,
+        "framework": "kolb",
+        "stage": "active_experimentation",
+        "duration_min": 20,
+        "history": 1
+      },
+      "output": "How did the music blocks enhance your understanding of music theory and composition?\n\n- Explain how you were able to observe and identify patterns in the music blocks.\n- Discuss how you were able to create your own music using the blocks.\n- Describe how you were able to apply what you learned to your own compositions.\n- Share any unexpected discoveries or insights that you made during your experimentation.",
+      "quality": "fair",
+      "issue": "Contains a question but too verbose"
+    }
+  ]
+}
