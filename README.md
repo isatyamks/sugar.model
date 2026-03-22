@@ -69,3 +69,12 @@ pip install -r training/requirements.txt
 python training/finetune.py
 python scripts/test_inference.py --model-path training/output/reflection-lora
 ```
+## Example Output
+Here are the results generated from running the `test_inference` script on the model:
+
+<img width="1883" height="639" alt="image" src="https://github.com/user-attachments/assets/af1412ee-bc88-4254-ba66-6ea5d640ce12" />
+<img width="1840" height="105" alt="image" src="https://github.com/user-attachments/assets/349bbd31-ee0f-48ad-8723-5ad5a477038b" />
+
+<img width="1901" height="771" alt="image" src="https://github.com/user-attachments/assets/a2ab25ff-7463-4b6e-8e43-20ef5598cb31" />
+
+
